@@ -28,6 +28,12 @@ class ConsultaLancamentos extends React.Component{
     constructor(){
         super();
         this.service = new LancamentoService()
+
+        let data = new Date();
+
+        let ano = data.getFullYear();
+
+        this.state.ano = ano;
     }
 
     buscar = () =>{

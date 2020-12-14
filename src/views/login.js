@@ -4,7 +4,6 @@ import FormGroup from '../components/form-group'
 import {withRouter} from 'react-router-dom'
 
 import UsuarioService from '../app/service/usuarioService'
-import LocalStorageService from '../app/service/localstorageService'
 import { mensagemErro } from '../components/toastr'
 import { AuthContext } from '../main/provedorAutenticacao'
 
@@ -64,7 +63,7 @@ class Login extends React.Component{
                                                         id="exampleInputPassword1" 
                                                         placeholder="Password"/>
                                             </FormGroup>
-                                            <button onClick={this.entrar} 
+                                            <button onClick={this.entrar}
                                                     className="btn btn-success">
                                                     <i className="pi pi-sign-in"></i> Entrar
                                             </button>

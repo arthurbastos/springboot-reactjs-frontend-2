@@ -1,10 +1,15 @@
 import React from 'react'
 
 import NavbarItem from './navbaritem'
+import NavbarItemText from './navbaritemtext'
 import {AuthConsumer} from '../main/provedorAutenticacao'
 
 function Navbar(props){
-
+    console.log(props);
+    let nomeUsuario = '';
+    if(props.isUsuarioAutenticado){
+        nomeUsuario =  'Usuario: ' + props.usuario.nome
+    }
     return(
         <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
             <div className="container">
@@ -25,6 +30,9 @@ function Navbar(props){
                         <NavbarItem render={props.isUsuarioAutenticado} onClick={props.deslogar} href="#/login" label="Sair"/>
                     </ul>
                 </div>
+                <div className="p-text-right">
+                    <NavbarItemText render={props.isUsuarioAutenticado} label={nomeUsuario}/>  
+                </div>
             </div>
         </div>
     )
@@ -33,7 +41,7 @@ function Navbar(props){
 export default  () => (
     <AuthConsumer>
         { (context) => (
-            <Navbar isUsuarioAutenticado={context.isAutenticado}  deslogar={context.encerrarSessao}/>
+            <Navbar usuario={context.usuarioAutenticado} isUsuarioAutenticado={context.isAutenticado}  deslogar={context.encerrarSessao}/>
         )}
     </AuthConsumer>
 )

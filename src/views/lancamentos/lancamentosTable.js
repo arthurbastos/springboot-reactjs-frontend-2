@@ -1,5 +1,6 @@
 import React from 'react'
 import currencyFormatter from 'currency-formatter'
+import utilService from '../../app/service/utilService'
 
 export default props => {
 
@@ -9,7 +10,7 @@ export default props => {
                 <td>{lancamento.descricao}</td>
                 <td>{ currencyFormatter.format(lancamento.valor, {locale: 'pt-BR'})}</td>
                 <td>{lancamento.tipo}</td>
-                <td>{lancamento.mes}</td>
+                <td>{utilService.obterMesPorId(lancamento.mes)}</td>
                 <td>{lancamento.status}</td>
                 <td>
                     <button className="btn btn-success" title="Efetivar"
