@@ -8,7 +8,7 @@ function Navbar(props){
     console.log(props);
     let nomeUsuario = '';
     if(props.isUsuarioAutenticado){
-        nomeUsuario =  'Usuario: ' + props.usuario.nome
+        nomeUsuario = props.usuario.nome
     }
     return(
         <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">

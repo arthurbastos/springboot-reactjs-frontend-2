@@ -34,7 +34,13 @@ class Login extends React.Component{
 
     prepareCadastrar = () => {
         this.props.history.push('/cadastro-usuarios')
-    }        
+    }       
+    
+    handleKeyDown = (e) => {
+        if(e.key === 'Enter'){
+            console.log('Teste de enter')
+        }
+    }
 
     render(){
         return(
@@ -64,6 +70,7 @@ class Login extends React.Component{
                                                         placeholder="Password"/>
                                             </FormGroup>
                                             <button onClick={this.entrar}
+                                                    onKeyPress={this.handleKeyDown}
                                                     className="btn btn-success">
                                                     <i className="pi pi-sign-in"></i> Entrar
                                             </button>
